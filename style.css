@@ -1,0 +1,566 @@
+/* --- Global Reset & Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* The main teal background color picked from the image */
+    background-color: #299CA8;
+    /* Using a generic monospace stack to match the typewriter look */
+    font-family: 'Courier New', Courier, monospace;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* --- Navigation --- */
+/* header {
+    padding: 2rem 0;
+    width: 100%;
+} */
+
+/* --- Navigation --- */
+header {
+    /* KEY CHANGE: Make the header fixed */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    /* Ensure the header is above other content */
+    z-index: 1000; 
+    
+    /* Set header background to match body, providing a solid color behind the text */
+    background-color: #299CA8; 
+    
+    /* Keep existing padding */
+    padding: 2rem 0; 
+    
+    /* Optional: subtle shadow to separate from content */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
+}
+
+/* KEY CHANGE: Adjust main content to start below the fixed header */
+main {
+    /* Calculate the height of the fixed header (approx 4rem padding + content height) 
+       We'll use padding-top on the main section to push content down. 
+       Assuming the header is roughly 6rem (96px) tall. */
+    padding-top: 6rem; 
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 4rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #ffffff;
+}
+
+/* --- Main Hero Section Layout (Home) --- */
+.hero-section {
+    display: flex;
+    min-height: 80vh; /* Adjust as needed */
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 5%;
+    gap: 2rem;
+    position: relative; /* For scroll target */
+}
+
+/* --- Left Side Text Styling --- */
+.content-text {
+    flex: 1;
+    text-align: center;
+    max-width: 600px;
+}
+
+.main-title {
+    font-size: 4rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.sub-title {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 3rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* The semi-transparent skills box */
+.skills-box {
+    /* A slightly lighter, semi-transparent teal */
+    background-color: #6fc1ca66;
+    padding: 3rem 2rem;
+    /* Using box-shadow to create the subtle border effect seen in the image */
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+/* Typography hierarchy inside the box */
+.skill-large {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.skill-medium {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.skill-small {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* --- Right Side Image Styling --- */
+.content-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px;
+    
+}
+
+
+
+.image-container {
+    position: relative;
+       /* background-color: #ffffff; */
+    background-color: #299CA8;
+    /* padding: 2rem; */
+    /* box-shadow: 0 10px 30px rgba(0,0,0,0.1); */
+    width: 100%;
+    
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Spline Badge Styling --- */
+.spline-badge {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #111111;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-family: sans-serif; /* Spline badge usually isn't monospace */
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* CSS approximation of the colorful Spline icon sphere */
+.spline-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff5858, #f09819, #38ef7d, #00c6ff);
+    display: inline-block;
+}
+
+
+/* --- About Section Styling --- */
+.about-section {
+    min-height: 80vh; /* Make it take up a good portion of the viewport */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 5%;
+    gap: 2rem; /* Spacing between elements */
+    text-align: center;
+    position: relative; /* For scroll target */
+}
+
+.about-section .section-title {
+    font-size: 3rem;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+}
+
+.intro-box {
+    background-color: rgba(111, 193, 202, 0.4); /* Same as skills box */
+    padding: 2rem 3rem;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+    max-width: 800px;
+    width: 100%;
+}
+
+.intro-box p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+
+.intro-box p span {
+    font-weight: bold; /* Highlight the specified words */
+    color: #ffffff;
+}
+
+.proficiency-section {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    justify-content: center;
+    align-items: center;
+    gap: 4rem; /* Space between proficiency and contact */
+    margin-top: 3rem;
+    width: 100%;
+    max-width: 900px;
+}
+
+.proficiency-tools {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+   
+    
+}
+
+.proficiency-tools p {
+    font-size: 1.5rem;
+    white-space: nowrap; /* Prevent "Proficiency :" from breaking */
+}
+
+.icons-row {
+    /* display: flex;
+    gap: 1.5rem; */
+    /* display: flex; */
+  /*flex-wrap: wrap;            Allow wrapping into multiple rows */
+  /*justify-content: center;    Center items in each row */
+  /*gap: 2vw;    Responsive spacing */
+
+  display: grid;
+  grid-template-columns: repeat(3, auto); /* 3 columns */
+  grid-template-rows: repeat(3, auto);    /* 2 rows */
+  gap: 20px;                     
+}
+
+
+.icons-row img {
+  /*width: 5vw;   5% of viewport width */
+    /*height: auto; Keep aspect ratio */
+ width: clamp(40px, 8vw, 80px);  /*Min 40px, scales up to 8% of viewport width, max 80px */
+  height: 70px;                   /*Keep aspect ratio*/
+  object-fit: contain;            /*Prevent distortion*/
+  display: block; 
+
+}
+
+
+
+/* Icon styles */
+.fa-brands, .fas {
+    font-size: 3rem; /* Standard icon size */
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease;
+}
+
+.fa-brands:hover, .fas:hover {
+    color: #ffffff;
+}
+
+/* Specific icon colors (approximated) */
+.adobe-xd-icon { color: #FF61F6; } /* Adobe XD purple */
+.html5-icon { color: #E44D26; } /* HTML5 orange */
+.css3-icon { color: #264DE4; } /* CSS3 blue */
+.js-icon { color: #F7DF1E; } /* JavaScript yellow */
+
+
+.contact-info {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.email-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.email-link:hover {
+    color: #ffffff;
+}
+
+.email-link .fas {
+    font-size: 1.5rem; /* Smaller icon for email */
+    color: inherit; /* Inherit color from parent link */
+}
+
+.wix-text {
+    font-size: 1.8rem;
+    margin-top: 3rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* --- Works Section Styling --- */
+.works-section {
+    min-height: 90vh; /* Allow for more content if needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 5%;
+    gap: 3rem;
+    text-align: center;
+}
+
+.works-title {
+    font-size: 4rem;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+}
+
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+    justify-content: center;
+    gap: 2.5rem; /* Spacing between project cards */
+    max-width: 1400px; /* Limit overall width */
+    width: 100%;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(111, 193, 202, 0.2); /* Slightly transparent background */
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    width: calc(33.333% - 2.5rem); /* Three cards per row with gap */
+    min-width: 300px; /* Minimum width for a card */
+    flex-grow: 1; /* Allow cards to grow if space is available */
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.project-image-container {
+    width: 100%;
+    height: 180px; /* Fixed height for consistency, adjust as needed */
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    /*background-color: #f0f0f0;  Placeholder background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+    display: block;
+}
+
+.project-description {
+    font-size: 1.3rem;
+    /* margin-bottom: 1.5rem; */
+margin-bottom: 4rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.more-info-btn {
+    background-color: #1f93a3; /* A darker teal from the image */
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.more-info-btn:hover {
+    background-color: #1a7e8a;
+    transform: translateY(-2px);
+}
+
+
+/* --- Initial States for Animation --- */
+/* Base for elements that fade in */
+.fade-in, .fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* For the image, add a slight delay */
+.fade-in-delayed {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out 0.3s; /* 0.3s delay */
+}
+
+
+/* Class added by JS to trigger animation */
+.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 1200px) {
+    .projects-grid {
+        gap: 2rem;
+    }
+    .project-card {
+        width: calc(50% - 2rem); /* Two cards per row */
+    }
+}
+
+@media (max-width: 968px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul {
+        gap: 2rem;
+    }
+
+    .main-title {
+        font-size: 3rem;
+    }
+    
+    .content-image {
+        width: 100%;
+    }
+
+    .about-section .section-title, .works-title {
+        font-size: 2.5rem;
+    }
+
+    .intro-box {
+        padding: 1.5rem 2rem;
+    }
+
+    .intro-box p {
+        font-size: 1.2rem;
+    }
+
+    .proficiency-section {
+        flex-direction: column; /* Stack proficiency and contact vertically */
+        gap: 2rem;
+    }
+
+    .proficiency-tools {
+        flex-direction: column; /* Stack proficiency text and icons vertically */
+        gap: 1rem;
+    }
+
+    .proficiency-tools p {
+        font-size: 1.2rem;
+    }
+
+    .icons-row {
+        gap: 1rem;
+    }
+
+    .fa-brands, .fas {
+        font-size: 2.5rem; /* Adjust icon size for smaller screens */
+    }
+
+    .contact-info {
+        font-size: 1rem;
+    }
+
+    .wix-text {
+        font-size: 1.4rem;
+    }
+
+    .project-card {
+        width: calc(100% - 2rem); /* One card per row */
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .skills-box {
+        padding: 2rem 1rem;
+    }
+
+    .skill-large { font-size: 1.4rem; }
+    .skill-medium { font-size: 1.1rem; }
+
+    .about-section .section-title, .works-title {
+        font-size: 2rem;
+    }
+
+    .intro-box p {
+        font-size: 1rem;
+    }
+    
+    .fa-brands, .fas {
+        font-size: 2rem;
+    }
+
+    .project-card {
+        padding: 1rem;
+    }
+
+    .project-image-container {
+        height: 150px;
+    }
+
+    .project-description {
+        font-size: 1rem;
+    }
+
+    .more-info-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+}
+
+footer {
+    width: 100%;
+    /* Use the same teal background, maybe slightly darker for contrast */
+    background-color: #24818a; 
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    padding: 1.5rem 2rem;
+    font-size: 0.85rem;
+    /* Ensure the footer is full width and below all content */
+    margin-top: 3rem; 
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
